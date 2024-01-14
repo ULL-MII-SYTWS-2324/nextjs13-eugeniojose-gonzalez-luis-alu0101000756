@@ -3,7 +3,7 @@ import { NextResponse } from "next/server"
 export const dynamic = 'force-dynamic'
 
 export async function GET() {
-  const res = await fetch('http://localhost:4000/tickets')
+  const res = await fetch('http://localhost:3000/tickets')
 
   const tickets = await res.json()
 
@@ -15,7 +15,7 @@ export async function GET() {
 export async function POST(request) {
   const ticket = await request.json()
 
-  const res = await fetch('http://localhost:4000/tickets', {
+  const res = await fetch('http://localhost:3000/tickets', {
     method: 'POST',
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify(ticket)

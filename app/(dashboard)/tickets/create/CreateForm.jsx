@@ -15,11 +15,12 @@ export default function CreateForm() {
     e.preventDefault()
     setIsLoading(true)
 
-    const newTicket = { title, body, priority, user_email: 'mario@netninja.dev' }
+    const newTicket = {id: crypto.randomUUID(), title, body, priority, user_email: 'mario@netninja.dev' }
 
-    const res = await fetch('http://localhost:4000/tickets', {
+    const res = await fetch('http://localhost:3000/tickets', {
       method: "POST",
       headers: {"Content-Type": "application/json"},
+      mode: 'no-cors', 
       body: JSON.stringify(newTicket)
     })
 
